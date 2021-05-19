@@ -20,7 +20,6 @@ def countdown(shutdownTime):
 ## MAIN START
 shutdownInput = input('Enter minutes or a time (hh:mm) to shut down: ')
 
-secondsUntilShutdown = 0
 now = shutdownTime = datetime.now()
 
 if ':' in shutdownInput:
@@ -35,8 +34,6 @@ if ':' in shutdownInput:
     # assume next day shutdown if the shutdown time is before 'now'
     if shutdownTime < now:
         shutdownTime = shutdownTime + timedelta(days=1)
-    timedifference = shutdownTime - now
-    secondsUntilShutdown = timedifference.seconds
 else:
     minutesUntilShutdown = int(shutdownInput)
     shutdownTime = now + timedelta(minutes=minutesUntilShutdown)
